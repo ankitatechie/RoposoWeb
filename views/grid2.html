@@ -8,7 +8,7 @@
 <section class="gridTwo">
     <div class="container-fluid">
         <div class="pdng">
-            <div class="products" ng-repeat="product in main.productsInfo | filter:main.searchProduct" id="{{$index}}">
+            <div class="products" lazy-scroll="paginationFuntion()" ng-repeat="product in main.productsInfo | filter:main.searchProduct track by $index" id="{{$index}}">
                 <div class="image">
                     <img src="{{product.image}}">
                 </div>

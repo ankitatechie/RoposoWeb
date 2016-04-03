@@ -3,12 +3,12 @@
 </div>
 <div class="search-box">
     <i id="filtersubmit" class="fa fa-search"></i>
-    <input id="filter" type="text" placeholder="Search" ng-model="main.searchProduct"/>
+    <input id="filter" type="text" placeholder="Search" ng-model="main.searchProduct" />
 </div>
 <section class="gridOne">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4" ng-repeat="product in main.productsInfo | filter:main.searchProduct" id="{{$index}}">
+            <div lazy-scroll="paginationFuntion()" class="col-md-4" ng-repeat="product in main.productsInfo | filter:main.searchProduct track by $index" id="{{$index}}">
                 <div class="products">
                     <div class="icons">
                         <span class="fa fa-trash-o" ng-click="main.removeProduct(product, $index)"></span>
@@ -21,7 +21,7 @@
                             <p>{{product.description}}</p>
                         </div>
                         <div class="editable" id="editable">
-                            <input class="title" type="text" ng-model="product.title"></input>
+                            <input class="title" type="text" ng-model="product.title"/>
                             <br>
                             <textarea class="description" type="text" ng-model="product.description"></textarea>
                             <button class="btn" ng-click="main.editProduct(product, $index, 'reset');">Reset</button>
