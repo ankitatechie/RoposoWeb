@@ -1,0 +1,35 @@
+<div class="add" ng-click="main.addProduct();">
+    Add new product
+</div>
+<div class="search-box">
+    <i id="filtersubmit" class="fa fa-search"></i>
+    <input id="filter" type="text" placeholder="Search" ng-model="main.searchProduct"/>
+</div>
+<section class="gridOne">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" ng-repeat="product in main.productsInfo | filter:main.searchProduct" id="{{$index}}">
+                <div class="products">
+                    <div class="icons">
+                        <span class="fa fa-trash-o" ng-click="main.removeProduct(product, $index)"></span>
+                        <span class="fa fa-edit" edit-list></span>
+                    </div>
+                    <img src="{{product.image}}">
+                    <div class="info">
+                        <div class="static">
+                            <h3>{{product.title}}</h3>
+                            <p>{{product.description}}</p>
+                        </div>
+                        <div class="editable" id="editable">
+                            <input class="title" type="text" ng-model="product.title"></input>
+                            <br>
+                            <textarea class="description" type="text" ng-model="product.description"></textarea>
+                            <button class="btn" ng-click="main.editProduct(product, $index, 'reset');">Reset</button>
+                            <button class="btn" ng-click="main.editProduct(product, $index);">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
