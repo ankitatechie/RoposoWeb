@@ -8,7 +8,7 @@
 <section class="gridOne">
     <div class="container-fluid">
         <div class="row">
-            <div lazy-scroll="paginationFuntion()" class="col-md-4" ng-repeat="product in main.productsInfo | filter:main.searchProduct track by $index" id="{{$index}}">
+            <div class="col-md-4" ng-repeat="product in main.productsInfo | filter:main.searchProduct" id="{{$index}}">
                 <div class="products">
                     <div class="icons">
                         <span class="fa fa-trash-o" ng-click="main.removeProduct(product, $index)"></span>
